@@ -7,10 +7,11 @@ from pymangaplus.utils import proto2dict
 
 class Client:
 
-    def __init__(self, language: Language = Language.ENGLISH):
+    def __init__(self, language: Language = Language.ENGLISH, app_ver: int = 47):
         self.language = language.value
         self._secret = None
         self.api = "https://jumpg-api.tokyo-cdn.com/api"
+        self.app_ver = app_ver
 
     def _request(self, **kwargs) -> dict:
         headers = {
@@ -22,7 +23,7 @@ class Client:
         params = kwargs.get("params") or {}
         params["os"] = "android"
         params["os_ver"] = 29
-        params["app_ver"] = 47
+        params["app_ver"] = self.app_ver
         if self._secret:
             params["secret"] = self._secret
 
