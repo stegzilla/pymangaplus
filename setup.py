@@ -32,7 +32,7 @@ setup(
     ],
     install_requires=[
         "requests",
-        "protobuf"
+        "protobuf>=3.20"
     ],
     python_requires=">=3.7"
 )
